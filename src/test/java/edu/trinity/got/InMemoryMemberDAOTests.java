@@ -45,7 +45,6 @@ public class InMemoryMemberDAOTests {
         assertThat(members).hasSize(6)
                 .allMatch(member -> member.house() == House.STARK);
     }
-
     @Test
     void findAllByHouse_notFound() {
         List<Member> members = dao.findAllByHouse(House.GREYJOY);
@@ -58,11 +57,9 @@ public class InMemoryMemberDAOTests {
         assertThat(members).hasSize(22);
     }
 
-
     @Test
     public void startWithS_sortAlphabetically() {
         List<Member> members = dao.startWithSandSortAlphabetically();
-
         assertAll(
                 () -> assertThat(members.get(0).name()).isEqualTo("Sansa"),
                 () -> assertThat(members.get(1).name()).isEqualTo("Stannis")
@@ -99,7 +96,7 @@ public class InMemoryMemberDAOTests {
     @Test
     public void sortByHouseName_sortByNameDesc() {
         List<Member> members = dao.sortByHouseNameThenSortByNameDesc();
-
+        // System.out.println(members);
         assertThat(members).hasSize(22);
     }
 
